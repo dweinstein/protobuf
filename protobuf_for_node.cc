@@ -189,16 +189,21 @@ namespace protobuf_for_node {
         case FieldDescriptor::CPPTYPE_UINT32:
           return NanNew<v8::Uint32>(GET(UInt32));
         case FieldDescriptor::CPPTYPE_INT64: {
-          std::ostringstream ss;
+          /*std::ostringstream ss;
           ss << GET(Int64);
           string s = ss.str();
           return NanNew<String>(s.data(), s.length());
+          */
+          return Number::New(GET(Int64));
         }
         case FieldDescriptor::CPPTYPE_UINT64: {
+          /*
           std::ostringstream ss;
           ss << GET(UInt64);
           string s = ss.str();
           return NanNew<String>(s.data(), s.length());
+          */
+          return Number::New(GET(UInt64));
         }
         case FieldDescriptor::CPPTYPE_FLOAT:
           return NanNew<Number>(GET(Float));
